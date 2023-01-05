@@ -1,0 +1,6 @@
+streamlit
+pandas
+numpy
+regex
+matplotlib
+openpyxl

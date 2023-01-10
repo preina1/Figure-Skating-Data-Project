@@ -370,7 +370,7 @@ with st.form('my_form'):
         plt.yticks([])
 
         plt.ylim(0,6)
-        plt.yticks([1, 2, 3, 4, 5, 6]) 
+        plt.yticks([1, 2, 3, 4]) 
         plt.grid(axis = 'y')
         #plt.show()
         #fig2.tight_layout()
@@ -452,7 +452,7 @@ with st.form('my_form2'):
         fig4.align_xlabels()
         plt.yticks([])
         plt.ylim(0,6)        
-        plt.yticks([1, 2, 3, 4, 5, 6]) 
+        plt.yticks([1, 2, 3, 4]) 
         plt.grid(axis='y')
         fig4.subplots_adjust(bottom=0.35)
         fig4.subplots_adjust(bottom=0.35)

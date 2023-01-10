@@ -359,7 +359,7 @@ with st.form('my_form'):
         plt.bar(fo2['Type'], fo2['Count'], color = c)
         #handles plt only to generate label handles
         handles = [plt.Rectangle((0,0),1,1, color=colors[label]) for label in labels]
-        plt.legend(handles, labels)
+        #plt.legend(handles, labels)
 
         #plt.legend(['Gold','Silver','Silver'])
         plt.ylabel('Number of medals')
@@ -442,7 +442,7 @@ with st.form('my_form2'):
         plt.bar(fo3['Category'], fo3['Count'], color = c)
         #handles plt only to generate label handles
         handles = [plt.Rectangle((0,0),1,1, color=colors[label]) for label in labels]
-        plt.legend(handles, labels)
+        #plt.legend(handles, labels)
 
         #plt.legend(['Men','Ladies','Pairs','Ice Dance (added in 1976)', 'Team (added in 2014)'])
         plt.ylabel('Number of medals')

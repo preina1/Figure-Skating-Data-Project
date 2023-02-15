@@ -1,7 +1,7 @@
 # Figure Skating Olympic Medals Project
-A dashboard displaying data of the figure skating medals won by USA in the history of the Winter Olympics
+A dashboard displaying data of the figure skating medals won by USA in the history of the Winter Olympics:
 
-The aim of this project is to answer the following question: How has the number of U.S. figure skating Olympic medals evolved over the history of the Winter Olympic Games?
+The aim of this project is to answer the following question: How has the number of U.S. figure skating Olympic medals evolved over the history of the Winter Olympic games?
 
 To answer this question, I used Olympic medalists in figure skating data obtained from Wikipedia. The data was extracted manually and stored in Excel data sheets by skating category (except for the team category, team event data was entered manually since the team event has only been held for the last three Winter Olympics)
 

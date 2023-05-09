@@ -346,12 +346,7 @@ with st.form('my_form'):
 
         #BAR CHART 2
         fig2, ax_bar = plt.subplots()
-        
-        #this is for stacked bars
-        #plt.bar(filtered_olympics['Olympic Games'], filtered_olympics['Bronze'], color='darkgoldenrod')
-        #plt.bar(filtered_olympics['Olympic Games'], filtered_olympics['Silver'],bottom = filtered_olympics['Bronze'], color='gray')
-        #plt.bar(filtered_olympics['Olympic Games'], filtered_olympics['Gold'],bottom = filtered_olympics['Bronze'] + filtered_olympics['Silver'], color='gold')
-        
+
         #this is for separate bars
         c = ['gold', 'gray','darkgoldenrod']
         colors = {'Gold':'gold', 'Silver':'gray', 'Bronze':'darkgoldenrod'}         
@@ -428,13 +423,7 @@ with st.form('my_form2'):
 
         #BAR CHART 4
         fig4, ax_bar = plt.subplots()
-        #this is for stacked bar plot
-        #plt.bar(filt_ol['Olympic Games'], filt_ol['Men'], color='blue')
-        #plt.bar(filt_ol['Olympic Games'], filt_ol['Ladies'],bottom = filt_ol['Men'], color='orange')
-        #plt.bar(filt_ol['Olympic Games'], filt_ol['Pairs'], bottom = filt_ol['Men'] + filt_ol['Ladies'], color='green')
-        #plt.bar(filt_ol['Olympic Games'], filt_ol['Ice Dance'], bottom = filt_ol['Men'] + filt_ol['Ladies'] + filt_ol['Pairs'], color='purple')
-        #plt.bar(filt_ol['Olympic Games'], filt_ol['Team'], bottom = filt_ol['Men'] + filt_ol['Ladies'] + filt_ol['Pairs'] + filt_ol['Ice Dance'], color = 'olive')
-        
+  
         #this is for separate bars
         c = ['blue', 'orange','green', 'purple', 'olive']
         colors = {'Men':'blue', 'Ladies':'orange', 'Pairs':'green', 'Ice Dance (added in 1976)':'purple', 'Team (added in 2014)':'olive'}         

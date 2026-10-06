@@ -5,7 +5,7 @@ import regex as re
 import matplotlib.pyplot as plt
  
 st.title('Figure Skating Medals Won by USA in the Winter Olympics')
-st.markdown('''This dashboard presents data of the figure skating 
+st.markdown('''This page presents data of the figure skating 
     medals won by the USA in the history of the Winter Olympics. 
     Data Source: [Wikipedia](https://en.wikipedia.org/wiki/List_of_Olympic_medalists_in_figure_skating#:~:text=Figure%20skating%20has%20been%20part,29%20representing%20National%20Olympic%20Committees.)''')
 st.header('Olympic Medals by Type')
@@ -22,7 +22,7 @@ men = men.set_index(['Games'])
 men = men.drop(men.index[2])
 men_country = men.loc['details']
 
-inx = np.arange(1,52,2)
+inx = np.arange(1,len(men),2)
 men = men.drop(men.index[inx])
 #men_new = pd.merge(men, men_country, how='left', left_index=True, right_index=True)
 men.reset_index(inplace=True)
@@ -88,7 +88,7 @@ ladies = ladies.set_index(['Games'])
 ladies = ladies.drop(ladies.index[2])
 ladies_country = ladies.loc['details']
 
-inx = np.arange(1,52,2)
+inx = np.arange(1,len(ladies),2)
 ladies = ladies.drop(ladies.index[inx])
 ladies.reset_index(inplace=True)
 
@@ -153,7 +153,7 @@ pairs = pairs.set_index(['Games'])
 pairs = pairs.drop(pairs.index[2])
 pairs_country = pairs.loc['details']
 
-inx = np.arange(1,52,2)
+inx = np.arange(1,len(pairs),2)
 pairs = pairs.drop(pairs.index[inx])
 pairs.reset_index(inplace=True)
 
@@ -215,7 +215,7 @@ icedance = icedance.set_index(['Games'])
 #icedance = icedance.drop(icedance.index[2])
 icedance_country = icedance.loc['details']
 
-inx = np.arange(1,25,2)
+inx = np.arange(1,len(icedance),2)
 icedance = icedance.drop(icedance.index[inx])
 icedance.reset_index(inplace=True)
 
@@ -293,12 +293,14 @@ total_bronze = [us_men_bronze[i] + us_ladies_bronze[i] + us_pairs_bronze[i] + ne
 #ADDING TEAM EVENT MEDALS
 total_bronze[23] = total_bronze[23] + 1
 total_bronze[24] = total_bronze[24] + 1
-total_silver[25] = total_silver[25] + 1
+total_gold[25] = total_gold[25] + 1
+total_gold[26] = total_gold[26] + 1
 
-total_team = np.zeros(26, dtype=int)
+total_team = np.zeros(len(total_gold), dtype=int)
 total_team[23] = 1
 total_team[24] = 1
 total_team[25] = 1
+total_team[26] = 1
 
 total_count = [total_gold[i] + total_silver[i] + total_bronze[i] for i in range(len(total_gold))]
  
@@ -426,14 +428,14 @@ with st.form('my_form2'):
   
         #this is for separate bars
         c = ['blue', 'orange','green', 'purple', 'olive']
-        colors = {'Men':'blue', 'Ladies':'orange', 'Pairs':'green', 'Ice Dance (added in 1976)':'purple', 'Team (added in 2014)':'olive'}         
+        colors = {'Men':'blue', 'Women':'orange', 'Pairs':'green', 'Ice Dance (added in 1976)':'purple', 'Team (added in 2014)':'olive'}         
         labels = list(colors.keys())
         plt.bar(fo3['Category'], fo3['Count'], color = c)
         #handles plt only to generate label handles
         handles = [plt.Rectangle((0,0),1,1, color=colors[label]) for label in labels]
         #plt.legend(handles, labels)
 
-        #plt.legend(['Men','Ladies','Pairs','Ice Dance (added in 1976)', 'Team (added in 2014)'])
+        #plt.legend(['Men','Women','Pairs','Ice Dance (added in 1976)', 'Team (added in 2014)'])
         plt.ylabel('Number of medals')
         #plt.title('USA Olympic Medal Count in Figure Skating by Category')
         #plt.grid(b=True, axis='y')
@@ -454,11 +456,11 @@ st.subheader('Summary Chart')
 fig4, ax_bar = plt.subplots()
 
 plt.bar(usa_bycat['Olympic Games'], usa_bycat['Men'], color='blue')
-plt.bar(usa_bycat['Olympic Games'], usa_bycat['Ladies'],bottom = usa_bycat['Men'], color='orange')
+plt.bar(usa_bycat['Olympic Games'], usa_bycat['Women'],bottom = usa_bycat['Men'], color='orange')
 plt.bar(usa_bycat['Olympic Games'], usa_bycat['Pairs'], bottom = usa_bycat['Men'] + usa_bycat['Ladies'], color='green')
 plt.bar(usa_bycat['Olympic Games'], usa_bycat['Ice Dance'], bottom = usa_bycat['Men'] + usa_bycat['Ladies'] + usa_bycat['Pairs'], color='purple')
 plt.bar(usa_bycat['Olympic Games'], usa_bycat['Team'], bottom = usa_bycat['Men'] + usa_bycat['Ladies'] + usa_bycat['Pairs'] + usa_bycat['Ice Dance'], color = 'olive')
-plt.legend(['Men','Ladies','Pairs','Ice Dance (added in 1976)', 'Team (added in 2014)'], fontsize='18')
+plt.legend(['Men','Women','Pairs','Ice Dance (added in 1976)', 'Team (added in 2014)'], fontsize='18')
 plt.ylabel('Number of medals', fontsize='18')
 #plt.grid(b=True, axis='y')
 fig4.set_figwidth(20)

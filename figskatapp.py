@@ -428,14 +428,14 @@ with st.form('my_form2'):
   
         #this is for separate bars
         c = ['blue', 'orange','green', 'purple', 'olive']
-        colors = {'Men':'blue', 'Women':'orange', 'Pairs':'green', 'Ice Dance (added in 1976)':'purple', 'Team (added in 2014)':'olive'}         
+        colors = {'Men':'blue', 'Ladies':'orange', 'Pairs':'green', 'Ice Dance (added in 1976)':'purple', 'Team (added in 2014)':'olive'}         
         labels = list(colors.keys())
         plt.bar(fo3['Category'], fo3['Count'], color = c)
         #handles plt only to generate label handles
         handles = [plt.Rectangle((0,0),1,1, color=colors[label]) for label in labels]
         #plt.legend(handles, labels)
 
-        #plt.legend(['Men','Women','Pairs','Ice Dance (added in 1976)', 'Team (added in 2014)'])
+        #plt.legend(['Men','Ladies','Pairs','Ice Dance (added in 1976)', 'Team (added in 2014)'])
         plt.ylabel('Number of medals')
         #plt.title('USA Olympic Medal Count in Figure Skating by Category')
         #plt.grid(b=True, axis='y')
@@ -456,11 +456,11 @@ st.subheader('Summary Chart')
 fig4, ax_bar = plt.subplots()
 
 plt.bar(usa_bycat['Olympic Games'], usa_bycat['Men'], color='blue')
-plt.bar(usa_bycat['Olympic Games'], usa_bycat['Women'],bottom = usa_bycat['Men'], color='orange')
+plt.bar(usa_bycat['Olympic Games'], usa_bycat['Ladies'],bottom = usa_bycat['Men'], color='orange')
 plt.bar(usa_bycat['Olympic Games'], usa_bycat['Pairs'], bottom = usa_bycat['Men'] + usa_bycat['Ladies'], color='green')
 plt.bar(usa_bycat['Olympic Games'], usa_bycat['Ice Dance'], bottom = usa_bycat['Men'] + usa_bycat['Ladies'] + usa_bycat['Pairs'], color='purple')
 plt.bar(usa_bycat['Olympic Games'], usa_bycat['Team'], bottom = usa_bycat['Men'] + usa_bycat['Ladies'] + usa_bycat['Pairs'] + usa_bycat['Ice Dance'], color = 'olive')
-plt.legend(['Men','Women','Pairs','Ice Dance (added in 1976)', 'Team (added in 2014)'], fontsize='18')
+plt.legend(['Men','Ladies','Pairs','Ice Dance (added in 1976)', 'Team (added in 2014)'], fontsize='18')
 plt.ylabel('Number of medals', fontsize='18')
 #plt.grid(b=True, axis='y')
 fig4.set_figwidth(20)
